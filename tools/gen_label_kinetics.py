@@ -28,7 +28,7 @@ if __name__ == '__main__':
     #files_input = ['kinetics_val.csv', 'kinetics_train.csv']
     files_input = ['kinetics-400_val.csv', 'kinetics-400_train.csv']
     files_output = ['val_videofolder.txt', 'train_videofolder.txt']
-    for (filename_input, filename_output, dataset_path) in zip(files_input, files_output, dataset_frame_path):
+    for (filename_input, filename_output, dataset_path) in zip(files_input[1], files_output[1], dataset_frame_path[1]):
         count_cat = {k: 0 for k in dict_categories.keys()}
         with open(os.path.join(label_path, filename_input)) as f:
             lines = f.readlines()[1:]
@@ -39,7 +39,7 @@ if __name__ == '__main__':
             line = line.rstrip()
             items = line.split(',')
             #folders.append(items[1] + '_' + items[2])
-            folders.append(items[1])
+            folders.append("%s_%06d_%06d" % (items[1], int(items[2]), int(items[3])) )
             #this_catergory = items[0].replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '')
             this_catergory = items[0].replace(' ', '_').replace('"', '').replace("'", '')
             categories_list.append(this_catergory)
