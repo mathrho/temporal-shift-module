@@ -16,7 +16,8 @@ label_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/label'
 if __name__ == '__main__':
     with open('kinetics_label_map.txt') as f:
         categories = f.readlines()
-        categories = [c.strip().replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '') for c in categories]
+        #categories = [c.strip().replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '') for c in categories]
+        categories = [c.strip().replace(' ', '_').replace('"', '').replace("'", '') for c in categories]
     assert len(set(categories)) == 400
     dict_categories = {}
     for i, category in enumerate(categories):
@@ -37,8 +38,10 @@ if __name__ == '__main__':
         for line in lines:
             line = line.rstrip()
             items = line.split(',')
-            folders.append(items[1] + '_' + items[2])
-            this_catergory = items[0].replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '')
+            #folders.append(items[1] + '_' + items[2])
+            folders.append(items[1])
+            #this_catergory = items[0].replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '')
+            this_catergory = items[0].replace(' ', '_').replace('"', '').replace("'", '')
             categories_list.append(this_catergory)
             idx_categories.append(dict_categories[this_catergory])
             count_cat[this_catergory] += 1
