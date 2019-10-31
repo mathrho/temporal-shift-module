@@ -10,7 +10,8 @@ import os
 
 dataset_train_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/compress/train_256_frames/'
 dataset_val_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/compress/val_256_frames/'
-dataset_frame_path = [dataset_val_path, dataset_train_path]
+#dataset_frame_path = [dataset_val_path, dataset_train_path]
+dataset_frame_path = [dataset_train_path]
 label_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/label'
 
 if __name__ == '__main__':
