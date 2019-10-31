@@ -18,7 +18,7 @@ if __name__ == '__main__':
     with open('kinetics_label_map.txt') as f:
         categories = f.readlines()
         #categories = [c.strip().replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '') for c in categories]
-        categories = [c.strip().replace(' ', '_').replace('"', '').replace("'", '') for c in categories]
+        categories = [c.strip().replace(' ', '_') for c in categories]
     assert len(set(categories)) == 400
     dict_categories = {}
     for i, category in enumerate(categories):
@@ -40,9 +40,9 @@ if __name__ == '__main__':
             line = line.rstrip()
             items = line.split(',')
             #folders.append(items[1] + '_' + items[2])
-            folders.append("%s_%06d_%06d" % (items[1], int(items[2]), int(items[3])) )
+            folders.append( "%s_%06d_%06d" % (items[1], int(items[2]), int(items[3])) )
             #this_catergory = items[0].replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '')
-            this_catergory = items[0].replace(' ', '_').replace('"', '').replace("'", '')
+            this_catergory = items[0].replace(' ', '_')
             categories_list.append(this_catergory)
             idx_categories.append(dict_categories[this_catergory])
             count_cat[this_catergory] += 1
