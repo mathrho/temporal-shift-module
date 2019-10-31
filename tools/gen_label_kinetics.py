@@ -26,9 +26,9 @@ if __name__ == '__main__':
     print(dict_categories)
 
     #files_input = ['kinetics_val.csv', 'kinetics_train.csv']
-    files_input = ['kinetics-400_val.csv', 'kinetics-400_train.csv']
-    files_output = ['val_videofolder.txt', 'train_videofolder.txt']
-    for (filename_input, filename_output, dataset_path) in zip(files_input[1], files_output[1], dataset_frame_path[1]):
+    files_input = ['kinetics-400_train.csv'] #'kinetics-400_train.csv' 'kinetics-400_val.csv'
+    files_output = ['train_videofolder.txt'] #'train_videofolder.txt' 'val_videofolder.txt'
+    for (filename_input, filename_output, dataset_path) in zip(files_input, files_output, dataset_frame_path):
         count_cat = {k: 0 for k in dict_categories.keys()}
         with open(os.path.join(label_path, filename_input)) as f:
             lines = f.readlines()[1:]
