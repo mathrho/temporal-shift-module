@@ -92,10 +92,14 @@ def return_jester(modality):
 def return_kinetics(modality):
     filename_categories = 400
     if modality == 'RGB':
-        root_data = ROOT_DATASET + 'kinetics-400/compress/val_256_frames'
-        filename_imglist_train = 'kinetics-400/label/train_videofolder.txt'
-        filename_imglist_val = 'kinetics-400/label/val_videofolder.txt'
-        prefix = 'image_{:05d}.jpg'
+        #root_data = ROOT_DATASET + 'kinetics-400/compress/val_256_frames'
+        #filename_imglist_train = 'kinetics-400/label/train_videofolder.txt'
+        #filename_imglist_val = 'kinetics-400/label/val_videofolder.txt'
+        #prefix = 'image_{:05d}.jpg'
+        root_data = ROOT_DATASET + 'kinetics/data/val_331_frames'
+        filename_imglist_train = 'kinetics/annotations/train_videofolder.txt'
+        filename_imglist_val = 'kinetics/annotations/val_videofolder.txt'
+        prefix = 'img_{:05d}.jpg'
     else:
         raise NotImplementedError('no such modality:' + modality)
     return filename_categories, filename_imglist_train, filename_imglist_val, root_data, prefix

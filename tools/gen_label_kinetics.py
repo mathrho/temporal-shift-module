@@ -9,10 +9,10 @@ import os
 
 
 dataset_train_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/compress/train_256_frames/'
-dataset_val_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/compress/val_256_frames/'
+dataset_val_path = '/export/sdb/home/lizhenyang8/data/kinetics/data/val_331_frames/'
 #dataset_frame_path = [dataset_val_path, dataset_train_path]
 dataset_frame_path = [dataset_val_path]
-label_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/label'
+label_path = '/export/sdb/home/lizhenyang8/data/kinetics/annotations'
 
 if __name__ == '__main__':
     with open('kinetics_label_map.txt') as f:
@@ -41,9 +41,9 @@ if __name__ == '__main__':
             items = line.split(',')
             #folders.append(items[1] + '_' + items[2])
             # for trainset
-            #folders.append( "%s_%06d_%06d" % (items[1], int(items[2]), int(items[3])) )
+            folders.append( "%s_%06d_%06d" % (items[1], int(items[2]), int(items[3])) )
             # for valset
-            folders.append( "%s" % (items[1],) )
+            #folders.append( "%s" % (items[1],) )
             #this_catergory = items[0].replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '')
             this_catergory = items[0].replace(' ', '_').replace('"', '')
             categories_list.append(this_catergory)
