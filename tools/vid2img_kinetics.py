@@ -34,7 +34,8 @@ def vid2jpg(file_name, class_path, dst_class_path):
     except:
         print(dst_directory_path)
         return
-    cmd = 'ffmpeg -i \"{}\" -threads 1 -vf scale=-1:331 -q:v 0 \"{}/img_%05d.jpg\"'.format(video_file_path, dst_directory_path)
+    #cmd = 'ffmpeg -i \"{}\" -threads 1 -vf scale=-1:331 -q:v 0 \"{}/img_%05d.jpg\"'.format(video_file_path, dst_directory_path)
+    cmd = 'ffmpeg -i \"{}\" -threads 1 -q:v 0 \"{}/img_%05d.jpg\"'.format(video_file_path, dst_directory_path)
     # print(cmd)
     subprocess.call(cmd, shell=True,
                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
