@@ -95,7 +95,7 @@ def return_kinetics(modality):
         root_data = ROOT_DATASET + 'kinetics-400/compress/val_256hq_frames'
         filename_imglist_train = 'kinetics-400/label/train_videofolder.txt'
         filename_imglist_val = 'kinetics-400/label/val_videofolder.txt'
-        prefix = 'image_{:05d}.jpg'
+        prefix = 'img_{:05d}.jpg'
         #root_data = ROOT_DATASET + 'kinetics/data/val_frames'
         #filename_imglist_train = 'kinetics/annotations/train_videofolder.txt'
         #filename_imglist_val = 'kinetics/annotations/val_videofolder.txt'
