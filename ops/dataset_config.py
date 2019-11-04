@@ -92,7 +92,7 @@ def return_jester(modality):
 def return_kinetics(modality):
     filename_categories = 400
     if modality == 'RGB':
-        root_data = ROOT_DATASET + 'kinetics-400/compress/val_256_frames'
+        root_data = ROOT_DATASET + 'kinetics-400/compress/val_256hq_frames'
         filename_imglist_train = 'kinetics-400/label/train_videofolder.txt'
         filename_imglist_val = 'kinetics-400/label/val_videofolder.txt'
         prefix = 'image_{:05d}.jpg'
