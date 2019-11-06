@@ -61,12 +61,12 @@ if __name__ == '__main__':
             # counting the number of frames in each video folders
             img_dir = os.path.join(dataset_path, categories_list[i], curFolder)
             img_file = glob.glob(img_dir+'*')
-            assert len(img_file) == 1
-            img_file = img_file[0]
-            if not os.path.exists(img_file):
-                missing_folders.append(img_file)
+            if len(img_file) == 0:
+                missing_folders.append(img_dir)
                 # print(missing_folders)
             else:
+                assert len(img_file) == 1
+                img_file = img_file[0]
                 output.append('%s %d'%(img_file, curIDX))
             print('%d/%d, missing %d'%(i, len(folders), len(missing_folders)))
         with open(os.path.join(label_path, filename_output),'w') as f:
