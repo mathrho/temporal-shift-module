@@ -11,7 +11,7 @@ import os
 dataset_train_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/compress/train_256hq_frames/'
 dataset_val_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/compress/val_256hq_frames/'
 #dataset_frame_path = [dataset_val_path, dataset_train_path]
-dataset_frame_path = [dataset_train_path]
+dataset_frame_path = [dataset_val_path]
 label_path = '/export/sdb/home/lizhenyang8/data/kinetics-400/label'
 
 if __name__ == '__main__':
@@ -27,8 +27,8 @@ if __name__ == '__main__':
     print(dict_categories)
 
     #files_input = ['kinetics_val.csv', 'kinetics_train.csv']
-    files_input = ['kinetics-400_train.csv'] #'kinetics-400_train.csv' 'kinetics-400_val.csv'
-    files_output = ['train_videofolder.txt'] #'train_videofolder.txt' 'val_videofolder.txt'
+    files_input = ['kinetics-400_val.csv'] #'kinetics-400_train.csv' 'kinetics-400_val.csv'
+    files_output = ['val_videofolder.txt'] #'train_videofolder.txt' 'val_videofolder.txt'
     for (filename_input, filename_output, dataset_path) in zip(files_input, files_output, dataset_frame_path):
         count_cat = {k: 0 for k in dict_categories.keys()}
         with open(os.path.join(label_path, filename_input)) as f:
@@ -41,9 +41,9 @@ if __name__ == '__main__':
             items = line.split(',')
             #folders.append(items[1] + '_' + items[2])
             # for trainset
-            folders.append( "%s_%06d_%06d" % (items[1], int(items[2]), int(items[3])) )
+            #folders.append( "%s_%06d_%06d" % (items[1], int(items[2]), int(items[3])) )
             # for valset
-            #folders.append( "%s" % (items[1],) )
+            folders.append( "%s" % (items[1],) )
             #this_catergory = items[0].replace(' ', '_').replace('"', '').replace('(', '').replace(')', '').replace("'", '')
             this_catergory = items[0].replace(' ', '_').replace('"', '')
             categories_list.append(this_catergory)
@@ -64,7 +64,7 @@ if __name__ == '__main__':
                 # print(missing_folders)
             else:
                 dir_files = os.listdir(img_dir)
-                output.append('%s %d %d'%(os.path.join('train_256hq_frames', categories_list[i], curFolder), len(dir_files), curIDX))
+                output.append('%s %d %d'%(os.path.join('val_256hq_frames', categories_list[i], curFolder), len(dir_files), curIDX))
             print('%d/%d, missing %d'%(i, len(folders), len(missing_folders)))
         with open(os.path.join(label_path, filename_output),'w') as f:
             f.write('\n'.join(output)+'\n')
