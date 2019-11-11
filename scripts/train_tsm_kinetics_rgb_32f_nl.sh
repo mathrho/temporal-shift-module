@@ -1,4 +1,4 @@
-# You should get TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment16_e50
+# You should get TSM_kinetics_RGB_resnet50_shift8_blockres_avg_segment32_e50_nl
 python main.py kinetics RGB \
      --gpus 0 1 2 3 \
      --arch resnet50 --num_segments 32 \
